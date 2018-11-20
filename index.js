@@ -48,6 +48,18 @@ class Passenger {
       }.bind(this)
     );
   }
+
+  drivers(){
+    let array = this.trips();
+    let driver_ids = array.map(x => x.driverId);
+    let new_array = [];
+    let i;
+        for(i=0;i<driver_ids.length;i++) {
+          let x = store.drivers.find(a => a.id === driver_ids[i]);
+          new_array.push(x);
+        }
+    return new_array;
+  }
 }
 
 class Trip {
